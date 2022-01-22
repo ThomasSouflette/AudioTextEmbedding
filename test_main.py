@@ -1,8 +1,12 @@
-from model.model import UnaterTextEmbeddings
+from models.model import UnaterModel
+import torch
+from torch.utils.data import DataLoader
+from torch.nn import functional as F
+from torch.nn.utils import clip_grad_norm_
 
 def main(opts):
     checkpoint = {}
-    model = UnaterTextEmbeddings(opts.model_config, checkpoint)
+    model = UnaterModel(opts.model_config, checkpoint)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
