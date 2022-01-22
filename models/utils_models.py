@@ -4,7 +4,7 @@ from torch import nn
 
 
 
-class UniterConfig(object):
+class UnaterConfig(object):
     """Configuration class to store the configuration of a `UniterModel`.
     """
     def __init__(self,
@@ -72,7 +72,7 @@ class UniterConfig(object):
     def from_dict(cls, json_object):
         """Constructs a `UniterConfig` from a
            Python dictionary of parameters."""
-        config = UniterConfig(vocab_size_or_config_json_file=-1)
+        config = UnaterConfig(vocab_size_or_config_json_file=-1)
         for key, value in json_object.items():
             config.__dict__[key] = value
         return config
@@ -141,7 +141,7 @@ class UnaterPreTrainedModel(nn.Module):
             *inputs, **kwargs: additional input for the specific Uniter class
         """
         # Load config
-        config = UniterConfig.from_json_file(config_file)
+        config = UnaterConfig.from_json_file(config_file)
         logger.info("Model config {}".format(config))
         # Instantiate model.
         model = cls(config, *inputs, **kwargs)

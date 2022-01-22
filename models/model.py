@@ -33,9 +33,9 @@ class UnaterTextEmbeddings(nn.Module):
         embeddings = self.dropout(embeddings)
         return embeddings
 
-class UnaterModel(UniterPreTrainedModel):
+class UnaterModel(UnaterPreTrainedModel):
     """ Modification for Joint Vision-Language Encoding
     """
     def __init__(self, config, img_dim):
         super().__init__(config)
-        self.embeddings = UniterTextEmbeddings(config)
+        self.embeddings = UnaterPreTrainedModel(config)
