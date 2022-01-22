@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from utils_models import UnaterPreTrainedModel
+from models.utils_models import UnaterPreTrainedModel
 
 
 class UnaterTextEmbeddings(nn.Module):
