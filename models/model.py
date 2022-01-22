@@ -1,5 +1,6 @@
 import torch
 from torch import nn
+from utils_models import UnaterPreTrainedModel
 
 
 class UnaterTextEmbeddings(nn.Module):
@@ -31,3 +32,10 @@ class UnaterTextEmbeddings(nn.Module):
         embeddings = self.LayerNorm(embeddings)
         embeddings = self.dropout(embeddings)
         return embeddings
+
+class UnaterModel(UniterPreTrainedModel):
+    """ Modification for Joint Vision-Language Encoding
+    """
+    def __init__(self, config, img_dim):
+        super().__init__(config)
+        self.embeddings = UniterTextEmbeddings(config)
