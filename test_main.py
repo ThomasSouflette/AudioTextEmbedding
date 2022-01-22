@@ -5,6 +5,8 @@ from torch.nn import functional as F
 from torch.nn.utils import clip_grad_norm_
 import argparse
 
+from utils.utils import parse_with_config
+
 def main(opts):
     checkpoint = {}
     model = UnaterModel(opts.model_config, checkpoint)
