@@ -2,6 +2,8 @@ import torch
 from torch import nn
 
 import json
+import copy
+
 
 import logging
 logger = logging.getLogger(__name__)
