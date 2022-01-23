@@ -9,7 +9,7 @@ from utils.utils import parse_with_config
 
 def main(opts):
     checkpoint = {}
-    model = UnaterModel(opts.model_config, checkpoint)
+    model = UnaterPreTrainedModel.from_pretrained(opts.model_config, checkpoint)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
