@@ -1,4 +1,5 @@
 from models.model import UnaterModel
+from models.utils_models import UnaterPreTrainedModel
 import torch
 from torch.utils.data import DataLoader
 from torch.nn import functional as F
