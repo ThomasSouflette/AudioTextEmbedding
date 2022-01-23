@@ -105,10 +105,10 @@ class UnaterPreTrainedModel(nn.Module):
     """
     def __init__(self, config, *inputs, **kwargs):
         super().__init__()
-        if not isinstance(config, UniterConfig):
+        if not isinstance(config, UnaterConfig):
             raise ValueError(
                 "Parameter config in `{}(config)` should be an instance of "
-                "class `UniterConfig`. To create a model from a Google "
+                "class `UnaterConfig`. To create a model from a Google "
                 "pretrained model use "
                 "`model = {}.from_pretrained(PRETRAINED_MODEL_NAME)`".format(
                     self.__class__.__name__, self.__class__.__name__
