@@ -8,11 +8,10 @@ if __name__ == '__main__':
 
 	text='couille rances de chien de talu'
 	input_ids = tokenizer.tokenize(text)
-	token_types_ids = input_ids['token_types_ids']
 	
 	audio_file_name = '/content/drive/MyDrive/AUDIOCAPT/test.wav'
 	audio_input, sr = sf.read(audio_file_name)
 	
-	embeddings = model.forward(input_ids, token_types_ids, audio_input, sr)
+	embeddings = model.forward(input_ids, audio_input, sr)
 
 	print(embeddings)
