@@ -1,16 +1,14 @@
 import torch
 from torch import nn
 
-from transformers import BertModel
+from transformers import AutoModel
 import openl3
 
 class ATEModel(nn.Module):
 	
 	def __init__(self):
 		super().__init__()
-		self.textEmbedder = BertModel.from_pretrained('bert-base-uncased',
-                                  output_hidden_states = True,
-                                  )
+		self.textEmbedder = AutoModel.from_pretrained("princeton-nlp/sup-simcse-bert-base-uncased")
 
 
 	def forward(self, input_ids,
