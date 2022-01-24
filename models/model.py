@@ -15,5 +15,5 @@ class ATEModel(nn.Module):
 				audio_input, sr):
 		text_embedding  = self.textEmbedder(**input_ids)
 
-		audio_embedding, timestamps = openl3.get_audio_embedding(audio_input, sr)
+		audio_embedding, timestamps = openl3.get_audio_embedding(audio_input, sr, embedding_size=512, content_type="env", hop_size=0.5)
 		return audio_embedding, text_embedding
