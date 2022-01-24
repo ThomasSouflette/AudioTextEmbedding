@@ -1,6 +1,8 @@
 from models.model import ATEModel
 from transformers import BertTokenizer
 
+import soundfile as sf
+
 
 if __name__ == '__main__':
 	model = ATEModel()
