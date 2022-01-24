@@ -17,9 +17,6 @@ model = BertModel.from_pretrained('bert-base-uncased',
 # was used in the model to generate 
 # embeddings to ensure consistency
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-HBox(children=(FloatProgress(value=0.0, description='Downloading', max=433.0, style=ProgressStyle(description_…
-HBox(children=(FloatProgress(value=0.0, description='Downloading', max=440473133.0, style=ProgressStyle(descri…
-HBox(children=(FloatProgress(value=0.0, description='Downloading', max=231508.0, style=ProgressStyle(descripti…
 # Text corpus
 ##############
 # These sentences show the different
