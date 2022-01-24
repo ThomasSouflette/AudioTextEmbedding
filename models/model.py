@@ -15,7 +15,7 @@ class ATEModel(nn.Module):
 
 	def forward(self, input_ids,
 				audio_input, sr):
-		text_embedding  = self.textEmbedder(input_ids)
+		text_embedding  = self.textEmbedder(**input_ids)
 
 		audio_embedding, timestamps = openl3.get_audio_embedding(audio_input, sr)
 		return audio_embedding, text_embedding
