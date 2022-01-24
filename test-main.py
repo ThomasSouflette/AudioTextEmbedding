@@ -16,6 +16,6 @@ if __name__ == '__main__':
 	audio_file_name = '/content/drive/MyDrive/AUDIOCAPT/test.wav'
 	audio_input, sr = sf.read(audio_file_name)
 	
-	embeddings = model.forward(encoded_inputs, audio_input, sr)
+	embeddings = model.forward(inputs, audio_input, sr)
 
 	print(embeddings)
