@@ -33,9 +33,24 @@ class UnaterTextEmbeddings(nn.Module):
         embeddings = self.dropout(embeddings)
         return embeddings
 
+
+
+class UnaterAudioEmbeddings(nn.Module):
+    def __init__(self, config, img_dim):
+        super.__init__()
+
+    def forward(self):
+        pass
+        #return embeddings
+
+
+
+
 class UnaterModel(UnaterPreTrainedModel):
     """ Modification for Joint Vision-Language Encoding
     """
     def __init__(self, config, img_dim):
         super().__init__(config)
         self.embeddings = UnaterPreTrainedModel(config)
+
+    def forward():
