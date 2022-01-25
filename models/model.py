@@ -6,7 +6,7 @@ import openl3
 
 class MultiModalTransformer(nn.Module):
 	def __init__(self, config):
-		super(config).__init__()
+		super().__init__()
 		self.config = config
 
 		layer = BertLayer(config)
