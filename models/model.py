@@ -28,9 +28,8 @@ class ATEModel(nn.Module):
 	
 	def __init__(self):
 		super().__init__()
-		self.textEmbedder = AutoModel.from_pretrained("princeton-nlp/sup-simcse-bert-base-uncased")
+        self.textEmbedder = AutoModel.from_pretrained("princeton-nlp/sup-simcse-bert-base-uncased")
         self.encoder = MultiModalTransformer()
-
 
 	def forward(self, input_ids,
 				audio_input, sr):
