@@ -1,5 +1,6 @@
 import torch
 from torch import nn
+import copy
 
 from transformers import AutoModel, BertLayer
 import openl3
