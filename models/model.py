@@ -5,9 +5,9 @@ from transformers import AutoModel, BertLayer
 import openl3
 
 class MultiModalTransformer(nn.Module):
-	def __init__(self):
-		super().__init__()
-		layer = BertLayer()
+	def __init__(self, config):
+		super().__init__(config)
+		layer = BertLayer(config)
 		num_hidden_layer = 10
 		self.layer = nn.ModuleList([copy.deepcopy(layer)
 									for _ in range(num_hidden_layer)])
@@ -26,10 +26,12 @@ class MultiModalTransformer(nn.Module):
 
 class ATEModel(nn.Module):
 	
-	def __init__(self):
+	def __init__(self, config):
 		super().__init__()
+		self.config = config
+
 		self.textEmbedder = AutoModel.from_pretrained("princeton-nlp/sup-simcse-bert-base-uncased")
-		self.encoder = MultiModalTransformer()
+		self.encoder = MultiModalTransformer(config)
 
 	def forward(self, input_ids,
 				audio_input, sr):
