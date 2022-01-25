@@ -5,31 +5,31 @@ from transformers import AutoModel, BertLayer
 import openl3
 
 class MultiModalTransformer(nn.Module):
-    def __init__(self):
-        super().__init__()
-        layer = BertLayer()
-        num_hidden_layer = 10
-        self.layer = nn.ModuleList([copy.deepcopy(layer)
-                                    for _ in range(num_hidden_layer)])
+	def __init__(self):
+		super().__init__()
+		layer = BertLayer()
+		num_hidden_layer = 10
+		self.layer = nn.ModuleList([copy.deepcopy(layer)
+									for _ in range(num_hidden_layer)])
 
-    def forward(self, input_, attention_mask,
-                output_all_encoded_layers=True):
-        all_encoder_layers = []
-        hidden_states = input_
-        for layer_module in self.layer:
-            hidden_states = layer_module(hidden_states, attention_mask)
-            if output_all_encoded_layers:
-                all_encoder_layers.append(hidden_states)
-        if not output_all_encoded_layers:
-            all_encoder_layers.append(hidden_states)
-        return all_encoder_layers
+	def forward(self, input_, attention_mask,
+				output_all_encoded_layers=True):
+		all_encoder_layers = []
+		hidden_states = input_
+		for layer_module in self.layer:
+			hidden_states = layer_module(hidden_states, attention_mask)
+			if output_all_encoded_layers:
+				all_encoder_layers.append(hidden_states)
+		if not output_all_encoded_layers:
+			all_encoder_layers.append(hidden_states)
+		return all_encoder_layers
 
 class ATEModel(nn.Module):
 	
 	def __init__(self):
 		super().__init__()
-        self.textEmbedder = AutoModel.from_pretrained("princeton-nlp/sup-simcse-bert-base-uncased")
-        self.encoder = MultiModalTransformer()
+		self.textEmbedder = AutoModel.from_pretrained("princeton-nlp/sup-simcse-bert-base-uncased")
+		self.encoder = MultiModalTransformer()
 
 	def forward(self, input_ids,
 				audio_input, sr):
