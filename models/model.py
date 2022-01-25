@@ -6,7 +6,9 @@ import openl3
 
 class MultiModalTransformer(nn.Module):
 	def __init__(self, config):
-		super().__init__(config)
+		super(config).__init__()
+		self.config = config
+
 		layer = BertLayer(config)
 		num_hidden_layer = 10
 		self.layer = nn.ModuleList([copy.deepcopy(layer)
